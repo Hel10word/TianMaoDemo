@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>购物车</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/cart.css">
+	<script type="text/javascript" src="js/cart.js"></script>
+</head>
+<body>
+
+
+<!-- /*页面最顶部------开始*/ -->
+<div class="pagetop">
+	<div class="pagetop-content">
+		<p>汪，欢迎来天猫<a href="login.html" target="_Blank">请登录</a><a href="register.html">免费注册</a></p>
+		<ul>
+			<li><a href="#"><i class="iconfont icon-liebiao"></i>网站导航</a></li>
+			<li><a href="#">商家支持</a></li>
+			<li><a href="#">淘宝网</a></li>
+			<li><a href="#"><i class="iconfont icon-shouji"></i>手机版</a></li>
+			<li><a href="#">收藏夹</a></li>
+			<li><a href="cart.html"><i class="iconfont icon-gouwuchexuanzhong"></i>购物车</a></li>
+			<li><a href="#">我的淘宝</a></li>
+		</ul>
+	</div>
+</div>
+<!-- /*页面最顶部------结束*/ -->
+
+
+
+
+
+
+
+<!-- 头部--------------开始 -->
+<div class="head">
+	<div class="logo"><a href="index.html"><img src="images/head-logo.png" width="184px" height="33px"></a></div>
+	<div class="text"></div>
+</div>
+<!-- 头部--------------结束 -->
+
+
+
+
+	<!-- 购物车表单开始 -->
+	<div class="container ">
+		<p style="text-align: right;"><img src="images/购物车流程.jpg"></p><br>
+		<table id="tablestyle">
+			<thead>
+				<tr>
+					<th> <input type="checkbox" class="checkBox" id="allcheck" onclick="changeProductObj()">&nbsp;全选</th>
+					<th>商品图片</th>
+					<th>商品名字</th>
+					<th>单价</th>
+					<th>数量</th>
+					<th width="14%">小计</th>
+					<th>修改</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="checkbox" class="checkBox" name="product"></td>
+					<td><img src="images/天猫国际-right-2.jpg"></td>
+					<td>吕洗发水</td>
+					<td name="goodsprice">128</td>
+					<td>
+						<div id="goods-num">
+							<a href="javascript:void(0)" onclick="addGoodsNum(this)">-</a>
+							<input type="text" name="goodsnum" value="1" onkeyup="value=value.replace(/[^\d]/g,'')" oninput="changeGoodsNum(this)" onporpertychange="changeGoodsNum(this)">
+							<a href="javascript:void(0)" style="right: 0;" onclick="reduceGoodsNum(this)">+</a>
+						</div>
+					</td>
+					<td name="goodssum">128</td>
+					<td><a href="javascript:void(0)" onclick="deleteRow()">删除</a></td>
+				</tr>
+
+				<tr>
+					<td><input type="checkbox" class="checkBox" name="product"></td>
+					<td><img src="images/天猫国际-right-1.jpg"></td>
+					<td>毕加索钢笔</td>
+					<td name="goodsprice">50</td>
+					<td>
+						<div id="goods-num">
+							<a href="javascript:void(0)" onclick="addGoodsNum(this)">-</a>
+							<input type="text" name="goodsnum" value="2" onkeyup="value=value.replace(/[^\d]/g,'')" oninput="changeGoodsNum(this)" onporpertychange="changeGoodsNum(this)">
+							<a href="javascript:void(0)" style="right: 0;" onclick="reduceGoodsNum(this)">+</a>
+						</div>
+					</td>
+					<td name="goodssum">100</td>
+					<td><a href="javascript:void(0)" onclick="deleteRow()">删除</a></td>
+				</tr>
+
+				<tr>
+					<td><input type="checkbox" class="checkBox" name="product"></td>
+					<td><img src="images/天猫国际-right-4.jpg"></td>
+					<td>厨房用锅</td>
+					<td name="goodsprice">749</td>
+					<td>
+						<div id="goods-num">
+							<a href="javascript:void(0)" onclick="addGoodsNum(this)">-</a>
+							<input type="text" name="goodsnum" value="1" onkeyup="value=value.replace(/[^\d]/g,'')" oninput="changeGoodsNum(this)" onporpertychange="changeGoodsNum(this)">
+							<a href="javascript:void(0)" style="right: 0;" onclick="reduceGoodsNum(this)">+</a>
+						</div>
+					</td>
+					<td name="goodssum">749</td>
+					<td><a href="javascript:void(0)" onclick="deleteRow()">删除</a></td>
+				</tr>
+
+				<tr>
+					<td><input type="checkbox" class="checkBox" name="product"></td>
+					<td><img src="images/天猫国际-right-5.jpg"></td>
+					<td>进口皮带</td>
+					<td name="goodsprice">300</td>
+					<td>
+						<div id="goods-num">
+							<a href="javascript:void(0)" onclick="addGoodsNum(this)">-</a>
+							<input type="text" name="goodsnum" value="1" onkeyup="value=value.replace(/[^\d]/g,'')" oninput="changeGoodsNum(this)" onporpertychange="changeGoodsNum(this)">
+							<a href="javascript:void(0)" style="right: 0;" onclick="reduceGoodsNum(this)">+</a>
+						</div>
+					</td>
+					<td name="goodssum">300</td>
+					<td><a href="javascript:void(0)" onclick="deleteRow()">删除</a></td>
+				</tr>
+
+				<tr>
+					<td><input type="checkbox" class="checkBox" name="product"></td>
+					<td><img src="images/天猫国际-right-6.jpg"></td>
+					<td>Adidas Yeezy Boost 350 V2 侃爷冰蓝</td>
+					<td name="goodsprice">3500</td>
+					<td>
+						<div id="goods-num">
+							<a href="javascript:void(0)" onclick="addGoodsNum(this)">-</a>
+							<input type="text" name="goodsnum" value="1" onkeyup="value=value.replace(/[^\d]/g,'')" oninput="changeGoodsNum(this)" onporpertychange="changeGoodsNum(this)">
+							<a href="javascript:void(0)" style="right: 0;" onclick="reduceGoodsNum(this)">+</a>
+						</div>
+					</td>
+					<td name="goodssum">3500</td>
+					<td><a href="javascript:void(0)" onclick="deleteRow()">删除</a></td>
+				</tr>
+
+				<tr>
+					<td><input type="checkbox" class="checkBox" name="product"></td>
+					<td><img src="images/天猫国际-right-3.jpg"></td>
+					<td>小ck女包</td>
+					<td name="goodsprice">1200</td>
+					<td>
+						<div id="goods-num">
+							<a href="javascript:void(0)" onclick="addGoodsNum(this)">-</a>
+							<input type="text" name="goodsnum" value="1" onkeyup="value=value.replace(/[^\d]/g,'')" oninput="changeGoodsNum(this)" onporpertychange="changeGoodsNum(this)">
+							<a href="javascript:void(0)" style="right: 0;" onclick="reduceGoodsNum(this)">+</a>
+						</div>
+					</td>
+					<td name="goodssum">1200</td>
+					<td><a href="javascript:void(0)" onclick="deleteRow()">删除</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<div id="tablefoot">
+			<ul>
+				<li><input type="submit" value="结算" id="jiesuan"></li>
+				<li id="allmoney">666</li>
+				<li>合计:&nbsp;</li>
+				<button onclick="deleteRow()" id="deleteBut">删除</button>
+			</ul>
+		</div>
+	</div>
+	<!-- 购物车表单结束 -->
+
+
+
+<!--  底部------------开始   -->
+	<iframe src="foot.html" frameborder="0" style="width: 100%;height: 280px; border-top: 2px solid red; margin-top: 150px;padding-top: 20px;"></iframe>
+<!-- 底部-------------结束 -->
+
+
+</body>
+</html>

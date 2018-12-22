@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		*{}
+	</style>
+</head>
+<body>
+
+<div>
+	<a href="#"><img src="1.jpg"></a>
+</div>
+
+<script type="text/javascript" src="jquery-1.4.1.min.js"></script>
+<script type="text/javascript">
+	$("a").click(function () {
+		var nowImg = $(this).find("img").attr('src');
+		window.location="2.html?imgPath="+nowImg;		 
+	})
+</script>
+</body>
+</html>

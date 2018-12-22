@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		*{padding: 0px;margin: 0px;}
+		body{background:red;}
+		.box{padding: 200px 150px;}
+		.one{border: 1px solid red;width: 200px;height: 200px; display: inline-block;margin-right: 20px;position: relative;}
+		.cover{width: 50px;height: 50px;position: absolute;top: 0px;left: 0px;background-color: rgba(0,0,0,0.6);}
+
+		.two{border: 1px solid black;width: 200px;height: 200px; overflow: hidden;position: relative;display: none;}
+		#big{position: absolute;top: 0px;left: 0px;}
+	</style>
+</head>
+<body>
+
+<div class="box">
+<div class="one">
+	<img src="1.jpg" width="200px" height="200px" id="small">
+	<div class="cover"></div>
+</div>
+<div class="two"><img src="1.jpg" id="big"></div>
+</div>
+
+<script type="text/javascript" src="jquery-1.4.1.min.js"></script>
+<script type="text/javascript">
+	$(".one").mousemove(function (e) {
+		var scrollTop = $(document).scrollTop();
+		console.log(scrollTop);
+		$(".two").css('display','inline-block')
+		// 获得鼠标的绝对位置;
+		var Mx = e.clientX;
+		var My = e.clientY+scrollTop;
+		
+		//获得该控件的绝对位置
+		
+		var Ty = $('.one').offset().top;
+		var Tx = $('.one').offset().left;
+
+
+		// 图片上面小透明 的x-y
+		var CoverX = Mx-Tx-25;
+		var CoverY = My-Ty-25;
+
+
+		// 判断当鼠标移出界  
+		if(CoverX<=0)CoverX=0;
+		if(CoverY<=0)CoverY=0;
+		if(CoverX>=200-50)CoverX=200-50;
+		if(CoverY>=200-50)CoverY=200-50;
+
+		$(".cover").css({'left':CoverX,'top':CoverY})
+
+		// 设置大图片的定位 (小图 200*200 原图800*800  相差4倍)
+		var x=CoverX*4;
+		var y=CoverY*4;
+		$("#big").css({"top":-y,"left":-x})
+
+		// 打印鼠标当前坐标  (经过计算后的相对坐标"鼠标相对浏览器窗口的坐标-图片相对整个页面的坐标")
+		console.log("x:"+x+"   y:"+y)
+	})
+
+	// 鼠标移出时 隐藏右边的放大镜
+	$(".one").mouseout(function(){
+		$(".two").css('display','none')
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<div>
+	<a href="#"><img src="2.jpg"></a>
+</div>
+
+
+
+<script type="text/javascript" src="jquery-1.4.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		console.log(window.location.href);
+
+		var str= window.location.href;
+		var num=str.indexOf("=");
+		if(num==-1)return;
+		str=str.substr(num+1); //取得所有参数   stringvar.substr(start [, length ]
+
+		console.log(str)
+		$("img").attr("src",str);
+
+
+		// var arr=str.split("&"); //各个参数放到数组里
+		//  console.log(arr)
+		// for(var i=0;i < arr.length;i++){
+		//      num=arr[i].indexOf("=");
+		//      if(num>0){
+		//           name=arr[i].substring(0,num);
+		//           value=arr[i].substr(num+1);
+		//           this[name]=value;
+		//      }
+		// }
+
+	})
+</script>
+</body>
+</html>
